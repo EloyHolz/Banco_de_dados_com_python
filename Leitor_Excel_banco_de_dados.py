@@ -1,8 +1,18 @@
 import pandas as pd
 import psycopg2
+import os
+
+# Casos de erro - não encontrar o arquivo
+
+file_path = "CICAP - MULTA EXECUTADA - PRAZO 19.08.xlsx"
+if os.path.exists(file_path):
+    Sheetl_df = pd.read_excel(file_path)
+else:
+    print(f"Arquivo não encontrado: {file_path}")
+
 
 # Ler a planilha e substituir espaços em branco nos nomes das colunas
-Sheetl_df = pd.read_excel("COMPILADO PLANILHA VARREDURA - GILMAR ARAUJO DA COSTA.xlsx")
+Sheetl_df = pd.read_excel( "E:\cursos\Progamação\Curso_Python_Empowerdata\Banco_de_dados_com_python\CICAP - MULTA EXECUTADA - PRAZO 19.08.xlsx")
 Sheetl_df.columns = Sheetl_df.columns.str.strip().str.replace(' ', '_')
 
 # Substituir valores em branco por None (equivalente a NULL no PostgreSQL)
