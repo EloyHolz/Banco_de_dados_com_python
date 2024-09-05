@@ -1,17 +1,18 @@
 import express from 'express';
 
 const app = express();
+app.use(express.json())
 
 const user = [];
 
 // Corrigido a ordem dos parâmetros: (req, res)
 app.post('/usuarios', (req, res) => {
-    console.log(req.body); // Se estiver enviando um corpo com JSON, use req.body
-    res.send('Ok, deu certo');
+    user.push(req.body); // Se estiver enviando um corpo com JSON, use req.body
+    res.status(201).json(req.body);
 });
 
 app.get('/usuarios', (req, res) => {
-    res.send('OK, deu bom');
+    res.status(200).json(user)
 });
 
 app.listen(3000, () => {
