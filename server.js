@@ -31,3 +31,8 @@ app.listen(3000, () => {
 */
 
 // ordem importa - req, res
+
+/*
+Usuário Bd - eloyh
+senha bd  - 9Gtt2D9cDgrAVIM4
+*/
